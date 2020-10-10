@@ -13,8 +13,10 @@ import {AddTopicComponent} from './topic/add-topic/add-topic.component';
 import {FormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
 import {MessageService} from 'primeng/api';
-import { EditTopicComponent } from './topic/edit-topic/edit-topic.component';
-import { DeleteTopicComponent } from './topic/delete-topic/delete-topic.component';
+import {EditTopicComponent} from './topic/edit-topic/edit-topic.component';
+import {DeleteTopicComponent} from './topic/delete-topic/delete-topic.component';
+import {SubscribeComponent} from './consumer/subscribe/subscribe.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DeleteTopicComponent } from './topic/delete-topic/delete-topic.componen
     ConsumerComponent,
     AddTopicComponent,
     EditTopicComponent,
-    DeleteTopicComponent
+    DeleteTopicComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { DeleteTopicComponent } from './topic/delete-topic/delete-topic.componen
     AccordionModule,
     ToastModule,
     RippleModule,
+    TableModule,
     HttpClientModule,
     FormsModule
   ],

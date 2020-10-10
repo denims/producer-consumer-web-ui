@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ConsumerService} from './service/consumer.service';
 
 @Component({
   selector: 'app-consumer',
@@ -6,10 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./consumer.component.css']
 })
 export class ConsumerComponent implements OnInit {
+  subscribedTopic: string;
 
-  constructor() { }
+  message: [] = [];
 
-  ngOnInit(): void {
+  constructor(private  consumerService: ConsumerService) {
   }
 
+  ngOnInit(): void {
+    this.consumerService.topicSubscribed.subscribe(
+      topic => this.subscribedTopic = topic
+    );
+    this.pollTopics();
+  }
+
+  pollTopics() {
+    setInterval(() => {
+      if (this.subscribedTopic != null) {
+        this.consumerService.pollTopic(this.subscribedTopic)
+          .subscribe(messages => {
+              (messages as []).forEach(value => this.message.push(value)
+              );
+            }
+          );
+      }
+    }, 5000);
+  }
 }
+
+
