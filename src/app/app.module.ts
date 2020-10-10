@@ -13,6 +13,7 @@ import {AddTopicComponent} from './topic/add-topic/add-topic.component';
 import {FormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
 import {MessageService} from 'primeng/api';
+import { EditTopicComponent } from './topic/edit-topic/edit-topic.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MessageService} from 'primeng/api';
     TopicComponent,
     ProducerComponent,
     ConsumerComponent,
-    AddTopicComponent
+    AddTopicComponent,
+    EditTopicComponent
   ],
   imports: [
     BrowserModule,

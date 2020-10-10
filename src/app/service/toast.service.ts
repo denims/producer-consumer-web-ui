@@ -11,4 +11,8 @@ export class ToastService {
   showSuccess(header: string, message: string) {
     this.messageService.add({severity: 'success', summary: header, detail: message});
   }
+
+  showError(header: string, message: string) {
+    this.messageService.add({severity: 'error', summary: header, detail: message});
+  }
 }

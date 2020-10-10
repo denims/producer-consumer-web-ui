@@ -1,0 +1,14 @@
+<form>
+  <div class="form-group">
+    <label for="topicOldName">Old Name For Topic</label>
+    <input type="text" class="form-control" id="topicOldName"
+           [(ngModel)]="topicOldName" [ngModelOptions]="{standalone: true}">
+
+    <label for="topicNewName">New name for Topic</label>
+    <input type="text" class="form-control" id="topicNewName"
+           [(ngModel)]="topicNewName" [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <button class="btn btn-primary" pRipple (click)="onSubmit()"
+          [disabled]="!topicOldName && !topicNewName">Submit</button>
+</form>

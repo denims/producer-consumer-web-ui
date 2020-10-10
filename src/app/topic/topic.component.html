@@ -1,13 +1,18 @@
 <h2>Topics</h2>
 <div class="row">
   <div class="col-md-12">
+
     <p-accordion [multiple]="true">
+
       <p-accordionTab header="Add Topic">
         <app-add-topic></app-add-topic>
       </p-accordionTab>
-      <p-accordionTab header="Header 2">
-        Content 1
+
+      <p-accordionTab header="Edit Topic">
+        <app-edit-topic></app-edit-topic>
       </p-accordionTab>
+
     </p-accordion>
+
   </div>
 </div>

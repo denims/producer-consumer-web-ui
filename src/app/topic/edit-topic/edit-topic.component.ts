@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {TopicServiceService} from '../service/topic-service.service';
-import {MessageService} from 'primeng/api';
 import {ToastService} from '../../service/toast.service';
 
 @Component({
-  selector: 'app-add-topic',
-  templateUrl: './add-topic.component.html',
-  styleUrls: ['./add-topic.component.css']
+  selector: 'app-edit-topic',
+  templateUrl: './edit-topic.component.html',
+  styleUrls: ['./edit-topic.component.css']
 })
-export class AddTopicComponent implements OnInit {
-  topicName: string;
+export class EditTopicComponent implements OnInit {
+  topicOldName: string;
+  topicNewName: string;
 
   constructor(private topicService: TopicServiceService,
               private toastService: ToastService) {
@@ -20,10 +20,11 @@ export class AddTopicComponent implements OnInit {
 
   onSubmit() {
     this.topicService
-      .createTopic(this.topicName)
+      .editTopic(this.topicOldName, this.topicNewName)
       .subscribe(topic => {
-          this.toastService.showSuccess('Topic Added :', topic.topicName);
+          this.toastService.showSuccess('Topic Edited :', topic.topicName);
         },
         error => this.toastService.showError(error.error.message, error.error.status));
   }
 }
+

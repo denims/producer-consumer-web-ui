@@ -16,5 +16,10 @@ export class TopicServiceService {
     return this.httpClient.post(ProducerConsumerConstants.TOPIC_CREATE_URL, topicName);
   }
 
+  editTopic(topicName: string, topicNewName: string): Observable<any> {
+    const topicEditUrl = ProducerConsumerConstants.TOPIC_BASE_URL + topicName + '/edit';
+    return this.httpClient.put(topicEditUrl, topicNewName);
+  }
+
 
 }
