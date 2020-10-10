@@ -21,5 +21,10 @@ export class TopicServiceService {
     return this.httpClient.put(topicEditUrl, topicNewName);
   }
 
+  deleteTopic(topicName: string): Observable<any> {
+    const topicEditUrl = ProducerConsumerConstants.TOPIC_BASE_URL + topicName + '/delete';
+    return this.httpClient.delete(topicEditUrl);
+  }
+
 
 }

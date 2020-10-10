@@ -1,0 +1,9 @@
+<form>
+  <div class="form-group">
+    <label for="topicNameToDelete">Topic Name</label>
+    <input type="text" class="form-control" id="topicNameToDelete"
+           [(ngModel)]="topicName" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button class="btn btn-primary" pRipple (click)="onSubmit()"
+          [disabled]="!topicName">Submit</button>
+</form>

@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
 import {MessageService} from 'primeng/api';
 import { EditTopicComponent } from './topic/edit-topic/edit-topic.component';
+import { DeleteTopicComponent } from './topic/delete-topic/delete-topic.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditTopicComponent } from './topic/edit-topic/edit-topic.component';
     ProducerComponent,
     ConsumerComponent,
     AddTopicComponent,
-    EditTopicComponent
+    EditTopicComponent,
+    DeleteTopicComponent
   ],
   imports: [
     BrowserModule,
