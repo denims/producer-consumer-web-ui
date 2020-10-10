@@ -1,1 +1,25 @@
-<p>producer works!</p>
+<h2>Producer</h2>
+<div class="row">
+  <div class="col-md-12">
+
+    <p-accordion [multiple]="true">
+      <p-accordionTab header="Post Message To A Topic">
+        <form>
+          <div class="form-group">
+            <label for="topic">Topic</label>
+            <input type="text" class="form-control" id="topic"
+                   [(ngModel)]="topic" [ngModelOptions]="{standalone: true}">
+
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message"
+                   [(ngModel)]="message" [ngModelOptions]="{standalone: true}">
+          </div>
+
+          <button class="btn btn-primary" pRipple (click)="onSubmit()"
+                  [disabled]="!topic && !message">Submit</button>
+        </form>
+      </p-accordionTab>
+    </p-accordion>
+
+  </div>
+</div>
