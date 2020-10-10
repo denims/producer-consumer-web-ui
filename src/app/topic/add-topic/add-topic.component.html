@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="topicName">Topic Name</label>
+    <input type="text" class="form-control" id="topicName" aria-describedby="topicHelp"
+           [(ngModel)]="topicName" [ngModelOptions]="{standalone: true}">
+    <small id="topicHelp" class="form-text text-muted">Topics should be unique</small>
+  </div>
+  <button class="btn btn-primary" pRipple (click)="onSubmit()"
+  [disabled]="!topicName">Submit</button>
+</form>
