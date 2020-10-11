@@ -7,4 +7,4 @@ COPY . /app
 RUN npm run build --prod
 
 FROM nginx:1.19.3
-COPY --from=build /app/docs /usr/share/nginx/html
+COPY --from=build /app/dist/producer-consumer-web-ui /usr/share/nginx/html
