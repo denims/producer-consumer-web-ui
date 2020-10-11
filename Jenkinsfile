@@ -1,15 +1,26 @@
 pipeline {
   environment {
     registry = "denimallel/prod-cons-web"
+    registryCredential = 'dockerhub_id'
+    dockerImage = ''
   }
   agent any
   stages {
     stage('Build dockerfile') {
       steps {
         script {
-          docker.build registry + ":latest"
+          dockerImage = docker.build registry + ":latest"
         }
       }
     }
+    stage('Push to Dockerhub') {
+      steps {
+        script {
+          docker.withRegistry('', registryCredential) {
+              dockerImage.push()
+          }
+        }
+      }
+  }
   }
 }
