@@ -6,10 +6,20 @@ pipeline {
   }
   agent any
   stages {
+    stage('Download dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Build the Web application') {
+      steps {
+        sh 'npm run build --prod'
+      }
+    }
     stage('Build dockerfile') {
       steps {
         script {
-          dockerImage = docker.build registry + ":latest"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
@@ -21,6 +31,12 @@ pipeline {
           }
         }
       }
-  }
+    }
+    stage('Trigger Deploy') {
+      steps {
+        echo "Triggering API deploy"
+        build job: 'prod-consumer-ui-deploy/master', parameters: [string(name: 'DOCKER_IMAGE_VERSION', value: "$BUILD_NUMBER")]
+      }
+    }
   }
 }
