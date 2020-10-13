@@ -33,6 +33,10 @@ export class ConsumerComponent implements OnInit {
       }
     }, 5000);
   }
+
+  clearMessages() {
+    this.message = [];
+  }
 }
 
 

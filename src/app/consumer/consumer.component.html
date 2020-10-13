@@ -8,7 +8,12 @@
         <p-table [value]="message">
           <ng-template pTemplate="header">
             <tr>
-              <th>Topic ID</th>
+              <th>
+                Topic ID
+                <button class="btn btn-primary" pRipple [disabled]="message.length === 0" (click)="clearMessages()">
+                  Clear
+                </button>
+              </th>
               <th>Topic Name</th>
               <th>Message ID</th>
               <th>Message</th>
